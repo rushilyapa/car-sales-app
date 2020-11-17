@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Vehicles</h1>
+<h1>Paramount Motors</h1>
 
 <table>
   <thead>
@@ -22,6 +22,7 @@
         <td><%= vehicle.year %></td>
         <td><%= vehicle.details %></td>
         <td><%= vehicle.price %></td>
+        <%= image_tag vehicle.picture if vehicle.picture.attached? %>
         <td><%= link_to 'Show', vehicle %></td>
         <td><%= link_to 'Edit', edit_vehicle_path(vehicle) %></td>
         <td><%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' } %></td>

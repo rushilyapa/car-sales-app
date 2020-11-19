@@ -1,12 +1,12 @@
 <nav>
 <% if user_signed_in? %>
 <span3 class='nav-greeting'> <%= "Welcome back, #{current_user.email}" %> </span>
-<%= link_to "Sign Out", destroy_user_session_path, method: "delete" %>
 <% else %>
-<%= link_to "Sign In", new_user_session_path %>
-<%= link_to "Sign Up", new_user_registration_path %>
 <%end%>
 </nav>
+
+<% if current_user %>
+<%= link_to "Sign Out", destroy_user_session_path, method: "delete" %>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <%= link_to "Paramount Motors", root_path %>
@@ -27,6 +27,10 @@
           <a class="dropdown-item" href="#">Another action</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
+        <%else%>
+        <%= link_to "Sign In", new_user_session_path %>
+        <%= link_to "Sign Up", new_user_registration_path %>
+        <%end%>
         </div>
       </li>
     </ul>

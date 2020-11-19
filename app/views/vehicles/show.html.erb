@@ -26,5 +26,6 @@
   <%= @vehicle.price %>
 </p>
 </div>
-<%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
+<td><% if can? :update, @vehicle %><%= link_to 'Edit', edit_vehicle_path(@vehicle), class:"btn btn-primary" %> <% end %></td>
+<td><% if can? :destroy, @vehicle %><%= link_to 'Destroy', @vehicle, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary" %><% end %></td>
 <%= link_to 'Back', vehicles_path %>

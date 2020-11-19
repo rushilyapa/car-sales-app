@@ -24,8 +24,8 @@
         <td><%= vehicle.price %></td>
         <%= image_tag vehicle.picture, :style => "width: 30%" if vehicle.picture.attached? %>
         <td><%= link_to 'Show', vehicle %></td>
-        <td><%= link_to 'Edit', edit_vehicle_path(vehicle) %></td>
-        <td><%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><% if can? :update, vehicle %><%= link_to 'Edit', edit_vehicle_path(vehicle), class:"btn btn-primary" %> <% end %></td>
+        <td><% if can? :destroy, vehicle %><%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary" %><% end %></td>
       </tr>
     <% end %>
   </tbody>
